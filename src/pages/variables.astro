@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import topPic from "../images/variables/top-pic.png";
+import memoryLayout from "../images/variables/memory-layout.jpg";
+import Code from "../components/Code.astro";
+---
+
+<Layout title="Variables">
+  <main>
+    <h1>Variables</h1>
+    <hr />
+
+    <Image
+      class="m-auto mt-5"
+      src={topPic}
+      alt="Example of variables using a box metaphor"
+    />
+    <div class="caption">
+      Picture from <a href="https://www.studytonight.com/c/variables-in-c.php"
+        >StudyTonight</a
+      >
+    </div>
+
+    <p>
+      You can think of variables in programming as the same as variables in
+      math. One of the main differences being that in math a variable can only
+      be a number while in programming, as long as it can be represented using
+      1s and 0s, a variable can be anything we set it to. Some examples are:
+      different types of numbers (integers and decimal point numbers), text,
+      images and videos.
+    </p>
+    <p>
+      Another way of thinking about variables is to think of them like a box.
+      The variable name is the label we put on the front of the box so we know
+      whats in it and the data we assign to the variable is the stuff we put
+      inside the box.
+    </p>
+    <p>
+      The number <code>65</code> can be represented as <code>1000001</code> in
+      binary. If we want to store that number as a variable the binary of it
+      will be somewhere in the memory of the computer. We can read from that
+      memory spot or overwrite it.
+    </p>
+
+    <Image src={memoryLayout} alt="memory layout" />
+    <div class="caption">
+      Picture from <a
+        href="https://www.brainkart.com/article/C---program--Variables_36581/"
+        >BrainKart</a
+      >
+    </div>
+
+    <p>
+      Assigning to variables in python is very simple, just write the name of
+      the variable and the value. Like so:
+    </p>
+
+    <!-- prettier-ignore -->
+    <Code>variable_name = " my data :)"</Code>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    /* width: 800px; */
+    /* max-width: calc(100% - 2rem); */
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .caption {
+    color: #6b6b6b;
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 40px;
+
+    font-weight: 700;
+    line-height: 1.23;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  p > code {
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    padding: 0.3em 0.4em;
+  }
+</style>

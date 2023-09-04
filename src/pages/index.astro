@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Fundamental Programming">
+  <main>
+    <h1>
+      <span
+        class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-600"
+        >&#60;</span
+      >Fundamental Programming <span
+        class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-300"
+        >/&#62;</span
+      >
+    </h1>
+    <div class="w-[800px] m-auto">
+      <ul role="list" class="link-card-grid">
+        <Card
+          href="/variables"
+          title="Variables"
+          body="Learn how to store information using variables. "
+        />
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+</style>
