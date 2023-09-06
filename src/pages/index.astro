@@ -5,15 +5,14 @@ import Card from "../components/Card.astro";
 
 <Layout title="Fundamental Programming">
   <main>
-    <h1>
-      <span
-        class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-600"
-        >&#60;</span
-      >Fundamental Programming <span
-        class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-300"
-        >/&#62;</span
+    <h1 id="title">
+      <span class="text-green-500">&#60;</span>
+      <span id="typewriter" data-text="Fundamental Programming"
+        >Fundamental Programming</span
       >
+      <span class="text-green-500">/&#62;</span>
     </h1>
+    <h1 id="title"></h1>
     <div class="w-[800px] m-auto">
       <ul role="list" class="link-card-grid">
         <Card
@@ -34,12 +33,30 @@ import Card from "../components/Card.astro";
     font-size: 20px;
     line-height: 1.6;
   }
-  h1 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1;
+  #title {
+    font-family: "PressStart";
+    font-size: 2em;
     text-align: center;
-    margin-bottom: 1em;
+    margin: 10em auto;
+    width: fit-content;
+    margin-top: 10em;
+    margin-bottom: 10em;
+  }
+  #typewriter {
+    border-right: 0.1em solid orange; /* The typwriter cursor */
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
   }
   .text-gradient {
     background-image: var(--accent-gradient);
@@ -55,3 +72,27 @@ import Card from "../components/Card.astro";
     padding: 0;
   }
 </style>
+
+<script>
+  function startTypewriter() {
+    console.log("sdfklj");
+    const letterTime = 50;
+
+    const elem = document.getElementById("typewriter")!;
+    elem.innerHTML = "";
+    const goalString = elem.dataset.text!;
+
+    let i = 0;
+    let interval = setInterval(() => {
+      if (i >= goalString.length) {
+        clearInterval(interval);
+      }
+
+      elem.innerHTML += goalString.charAt(i);
+
+      i++;
+    }, letterTime);
+  }
+
+  startTypewriter();
+</script>

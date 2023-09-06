@@ -16,7 +16,11 @@ import Logo from "../components/Logo.astro";
       content="Content for Fundamental Programming TAs"
     />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="fundamental-programming-teaching/favicon-16x16.png"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -28,7 +32,16 @@ import Logo from "../components/Logo.astro";
     <slot />
   </body>
 </html>
+
 <style is:global>
+  @font-face {
+    font-family: "PressStart";
+    src: url("/fundamental-programming-teaching/fonts/PressStart2P-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --accent: 136, 58, 234;
     --accent-light: 2, 195, 154;
@@ -40,14 +53,11 @@ import Logo from "../components/Logo.astro";
       white 60%
     );
   }
+
   html {
     font-family: system-ui, sans-serif;
     background-color: #fffafa;
-    background-size: 224px;
     color: #282c35;
-  }
-  h1 {
-    font-size: 38px;
   }
 
   code {
@@ -60,5 +70,49 @@ import Logo from "../components/Logo.astro";
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
+  }
+
+  main {
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    /* width: 800px; */
+    /* max-width: calc(100% - 2rem); */
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .photo {
+    margin: auto;
+    margin-top: 1.25rem;
+  }
+  .caption {
+    color: #6b6b6b;
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .title {
+    font-size: 40px;
+
+    font-weight: 700;
+    line-height: 1.23;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  p > code {
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    padding: 0.3em 0.4em;
   }
 </style>

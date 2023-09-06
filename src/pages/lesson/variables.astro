@@ -8,11 +8,11 @@ import Code from "../../components/Code.astro";
 
 <Layout title="Variables">
   <main>
-    <h1>Variables</h1>
+    <h1 class="title">Variables</h1>
     <hr />
 
     <Image
-      class="m-auto mt-5"
+      class="photo"
       src={topPic}
       alt="Example of variables using a box metaphor"
     />
@@ -43,7 +43,7 @@ import Code from "../../components/Code.astro";
       memory spot or overwrite it.
     </p>
 
-    <Image src={memoryLayout} alt="memory layout" />
+    <Image class="photo" src={memoryLayout} alt="memory layout" />
     <div class="caption">
       Picture from <a
         href="https://www.brainkart.com/article/C---program--Variables_36581/"
@@ -57,48 +57,32 @@ import Code from "../../components/Code.astro";
     </p>
 
     <!-- prettier-ignore -->
-    <Code>variable_name = " my data :)"</Code>
+    <Code>
+<pre>
+# Creating the variable
+my_var = "my data :)"
+# Printing the contents
+print(my_var)
+
+# Overwriting the variable
+my_var = "new data"
+print(my_var)
+</pre>
+<pre slot="output">
+my data :)
+new data
+</pre>
+	</Code>
+
+    <p>
+      The first output shows "my data :)" which makes sense because that is what
+      we assigned to it.
+    </p>
+    <p>
+      As you can see the second output line shows the "new data" instead. This
+      is because we are overwriting the original data that was stored in the
+      variable, there is no way to get the data back unless we have saved it in
+      another variable.
+    </p>
   </main>
 </Layout>
-
-<style>
-  main {
-    width: 50%;
-    margin: auto;
-    padding: 1rem;
-    /* width: 800px; */
-    /* max-width: calc(100% - 2rem); */
-    font-size: 20px;
-    line-height: 1.6;
-  }
-
-  .caption {
-    color: #6b6b6b;
-    font-size: 0.8em;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  h1 {
-    font-size: 40px;
-
-    font-weight: 700;
-    line-height: 1.23;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin: 1em 0;
-  }
-
-  p > code {
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    padding: 0.3em 0.4em;
-  }
-</style>
