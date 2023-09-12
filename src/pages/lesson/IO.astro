@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import topPic from "../../images/variables/top-pic.png";
+import memoryLayout from "../../images/variables/memory-layout.jpg";
+import Code from "../../components/Code.astro";
+---
+
+<Layout title="Variables">
+  <main>
+    <h1 class="title">Variables</h1>
+    <hr />
+
+    <Image
+      class="photo"
+      src={topPic}
+      alt="Example of variables using a box metaphor"
+    />
+    <div class="caption">
+      Picture from <a href="https://www.studytonight.com/c/variables-in-c.php"
+        >StudyTonight</a
+      >
+    </div>
+
+    <p>
+      You can think of variables in programming as the same as variables in
+      math. One of the main differences being that in math a variable can only
+      be a number while in programming, as long as it can be represented using
+      1s and 0s, a variable can be anything we set it to. Some examples are:
+      different types of numbers (integers and decimal point numbers), text,
+      images and videos.
+    </p>
+    <p>
+      Another way of thinking about variables is to think of them like a box.
+      The variable name is the label we put on the front of the box so we know
+      whats in it and the data we assign to the variable is the stuff we put
+      inside the box.
+    </p>
+    <p>
+      The number <code>65</code> can be represented as <code>1000001</code> in
+      binary. If we want to store that number as a variable the binary of it
+      will be somewhere in the memory of the computer. We can read from that
+      memory spot or overwrite it.
+    </p>
+
+    <Image class="photo" src={memoryLayout} alt="memory layout" />
+    <div class="caption">
+      Picture from <a
+        href="https://www.brainkart.com/article/C---program--Variables_36581/"
+        >BrainKart</a
+      >
+    </div>
+
+    <p>
+      Assigning to variables in python is very simple, just write the name of
+      the variable and the value. Like so:
+    </p>
+
+    <!-- prettier-ignore -->
+    <Code>
+<pre>
+# Creating the variable
+my_var = "Hello World"
+# Printing the contents
+print(my_var)
+
+# Overwriting the variable
+my_var = "new data"
+print(my_var)
+</pre>
+<pre slot="output">
+my data :)
+new data
+</pre>
+	</Code>
+
+    <p>
+      The first output shows "my data :)" which makes sense because that is what
+      we assigned to it.
+    </p>
+    <p>
+      As you can see the second output line shows the "new data" instead. This
+      is because we are overwriting the original data that was stored in the
+      variable, there is no way to get the data back unless we have saved it in
+      another variable.
+    </p>
+  </main>
+</Layout>
