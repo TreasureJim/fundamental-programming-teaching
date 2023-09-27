@@ -1,0 +1,190 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Code from "../../components/Code.astro";
+---
+
+<Layout title="Loops">
+  <main>
+    <h1 class="title">Loops</h1>
+    <hr />
+
+    <p>
+      Loops are exactly what they sound like they "loop", this is very useful
+      when you have a piece of code that needs to repeat many times. In
+      engineering there is a joke that a lazy engineer is a good engineer
+      because they find the shortest way to do everything with the least effort.
+      This is the point that loops help with, it is called DRY, <b
+        >Don't Repeat Yourself</b
+      >. If there is code that happens a million times it makes much more sense
+      to write that code within a loop rather than copy and pasting the code 1
+      million times.
+    </p>
+    <Code>
+      <pre>
+# THIS looks much better
+for i in range(10):
+	print("HI :)")
+
+# THAN THIS
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+print("HI :)")
+</pre>
+    </Code>
+
+    <p>
+      There are two types of loops: for loops and while loops. This will explain
+      what the difference is and when you want to use them.
+    </p>
+
+    <h2>For Loops</h2>
+    <p>
+      For loops are used when you know how many times you want the code to
+      repeat. For example if I want to give someone 5 individual coins this is
+      how I would do it:
+    </p>
+    <Code>
+      <pre>
+for i in range(5):
+	give_coin()
+</pre>
+    </Code>
+
+    <h2>While loops</h2>
+    <p>
+      While loops are for when you don't know how many times you need to repeat
+      and you need to check everytime if you want to repeat the code. If I am in
+      a zombie game and I need to get rid off a zombie, I would need to shoot
+      the zombie until it is dead. I do not know how many times I need to shoot
+      the zombie. Here is an example:
+    </p>
+    <Code>
+      <pre>
+while (zombie_alive):
+	shoot()
+</pre>
+    </Code>
+
+    <p>
+      <b>Hint</b>: If you are programming something that interacts with user
+      input typically you would use a while loop. This is because most of the
+      you need to validate if the user input correctly otherwise you need to
+      catch the mistake. You don't know how many times the user will input
+      something invalid so a while loop is useful.
+    </p>
+    <Code>
+      <pre>
+while (True):
+    # Ask question
+    print(
+"""Burgers:
+    1. As Gouda as it Gets
+    2. Supernova Burger
+    3. Hangry Borger
+""")
+    answer = input("What burger do you want? (1, 2 or 3): ")
+
+    # What to do with results
+    if (answer == "1"):
+        print("You chose As Gouda as it Gets!")
+        # correct answer so we want to leave menu
+        break
+    elif (answer == "2"):
+        print("You chose Supernova Burger!")
+        break
+    elif (answer == "2"):
+        print("You chose Hangry Borger!")
+        break
+    else:
+        # incorrect answer stay in menu
+        print("Wrong input, input again!")
+</pre>
+    </Code>
+
+    <h2>Nested Loops</h2>
+    <p>
+      Nested loops are a fancy name for loops that are within loops. This can be
+      useful when you need to repeat something that is also repeated. You can
+      put as many loops inside of other loops are you like, there is no limit.
+    </p>
+    <p>
+      One example of using this is when you need to iterate over the columns and
+      rows of a table. Here is an example of using nested loops to print the
+      multiplication table:
+    </p>
+    <Code>
+      <pre
+        is:raw>
+for row in range(1, num_rows + 1):
+    for column in range(1, num_columns + 1):
+        number = row * column
+        print(f"{number:<3}", end="")
+    print()
+</pre>
+      <pre
+        slot="output">
+1  2  3  4  5  6  7  8  9  10
+2  4  6  8  10 12 14 16 18 20
+3  6  9  12 15 18 21 24 27 30
+4  8  12 16 20 24 28 32 36 40
+5  10 15 20 25 30 35 40 45 50
+6  12 18 24 30 36 42 48 54 60
+7  14 21 28 35 42 49 56 63 70
+8  16 24 32 40 48 56 64 72 80
+9  18 27 36 45 54 63 72 81 90
+10 20 30 40 50 60 70 80 90 100
+</pre>
+    </Code>
+
+    <p>
+      A more complex version of this would be to add headers to the table. This
+      can be done by changing what is between the inner loops, here a line is
+      added between the outer loop and the inner loop which prints the line
+      number. If you realise that the outer loop is responsible for the rows and
+      the inner for columns then putting the line before the inner loop starts
+      would do something right at the start of the row being printed. Here it is
+      adding the side header to the table.
+    </p>
+    <Code>
+      <pre
+        is:raw>
+print("*  | ", end="")
+for n in range(1, num_columns + 1):
+    print(f"{n:<3}", end="")
+	
+print()
+print("-" * 35)
+
+for row in range(1, num_rows + 1):
+    print(f"{row:<2} | ", end="")
+    for column in range(1, num_columns + 1):
+        number = row * column
+        print(f"{number:<3}", end="")
+    print()
+</pre>
+      <pre
+        slot="output">
+*  | 1  2  3  4  5  6  7  8  9  10
+-----------------------------------
+1  | 1  2  3  4  5  6  7  8  9  10
+2  | 2  4  6  8  10 12 14 16 18 20
+3  | 3  6  9  12 15 18 21 24 27 30
+4  | 4  8  12 16 20 24 28 32 36 40
+5  | 5  10 15 20 25 30 35 40 45 50
+6  | 6  12 18 24 30 36 42 48 54 60
+7  | 7  14 21 28 35 42 49 56 63 70
+8  | 8  16 24 32 40 48 56 64 72 80
+9  | 9  18 27 36 45 54 63 72 81 90
+10 | 10 20 30 40 50 60 70 80 90 100
+</pre>
+    </Code>
+  </main>
+</Layout>
